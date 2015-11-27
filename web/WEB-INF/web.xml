@@ -8,6 +8,10 @@
         <servlet-class>fr.INFO921.SaveColisServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>TrackingServlet</servlet-name>
+        <servlet-class>fr.INFO921.TrackingServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AllColisServlet</servlet-name>
         <servlet-class>fr.INFO921.AllColisServlet</servlet-class>
     </servlet>
@@ -18,6 +22,10 @@
     <servlet-mapping>
         <servlet-name>AllColisServlet</servlet-name>
         <url-pattern>/All</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>TrackingServlet</servlet-name>
+        <url-pattern>/tracking</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

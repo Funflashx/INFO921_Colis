@@ -12,6 +12,7 @@
         <title>Colis</title>
         <link rel=stylesheet type="text/css" href="css/bootstrap.min.css">
         <link rel=stylesheet type="text/css" href="css/custom.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
     </head>
     <body>
   <nav class="navbar navbar-default">
@@ -26,7 +27,6 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/INFO921_Colis/All">Home | Progression <span class="sr-only">(current)</span></a></li>
         <li><a href="/INFO921_Colis/new">Enregistrement</a></li>
-        <li><a href="/INFO921_Colis/track">Suivie</a></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">

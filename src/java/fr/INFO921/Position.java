@@ -91,8 +91,11 @@ public class Position implements Serializable {
         return colis;
     }
 
-    public void setColis(Colis colis) {
+   public void setColis(Colis colis) {
         this.colis = colis;
+        if (!colis.getPositions().contains(this)) {
+            colis.getPositions().add(this);
+        }
     }
 
     @Override

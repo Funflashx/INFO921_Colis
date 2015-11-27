@@ -155,6 +155,13 @@ public class Colis implements Serializable {
     public void setPositions(Collection<Position> positions) {
         this.positions = positions;
     }
+    
+     public void addPosition(Position position) {
+        this.positions.add(position);
+        if (position.getColis() != this) {
+            position.setColis(this);
+        }
+    }
 
     
     @Override
