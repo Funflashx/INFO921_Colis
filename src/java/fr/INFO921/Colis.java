@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.INFO921;
 
 import java.io.Serializable;
@@ -46,22 +41,13 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Colis.findByDestination", query = "SELECT c FROM Colis c WHERE c.destination = :destination"),
     @NamedQuery(name = "Colis.findByEtatCourant", query = "SELECT c FROM Colis c WHERE c.etatCourant = :etatCourant")})
 public class Colis implements Serializable {
-
-    public Colis(Integer id, Float poids, Integer valeur, String origine, String destination, Etat etatCourant, Collection<Position> positions) {
-        this.id = id;
-        this.poids = poids;
-        this.valeur = valeur;
-        this.origine = origine;
-        this.destination = destination;
-        this.etatCourant = etatCourant;
-        this.positions = positions;
-    }
     
     public static final String FIND_ALL_COLIS = "Colis.FIND_ALL_COLIS";
 
     public static final String findByEtatCourant = "findByEtatCourant";
     
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -73,12 +59,10 @@ public class Colis implements Serializable {
     
     @Column(name = "valeur")
     private Integer valeur;
-    
-    @Size(min = 1, max = 100)
+
     @Column(name = "origine")
     private String origine;
-    
-    @Size(min = 1, max = 100)
+
     @Column(name = "destination")
     private String destination;
     
@@ -94,10 +78,6 @@ public class Colis implements Serializable {
     private Collection<Position> positions;
 
     public Colis() {
-    }
-
-    public Colis(Integer id) {
-        this.id = id;
     }
 
     Colis(float poids, int valeur, String origine, String destination) {
@@ -124,10 +104,6 @@ public class Colis implements Serializable {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Float getPoids() {
         return poids;
     }
@@ -136,7 +112,7 @@ public class Colis implements Serializable {
         this.poids = poids;
     }
     
-        public Date getDate_enregistrement() {
+    public Date getDate_enregistrement() {
         return date_enregistrement;
     }
 
@@ -195,7 +171,6 @@ public class Colis implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Colis)) {
             return false;
         }
@@ -206,9 +181,18 @@ public class Colis implements Serializable {
         return true;
     }
 
+
     @Override
     public String toString() {
-        return "fr.INFO921.Colis[ id=" + id + " ]";
+        return "Colis{" +
+                "id=" + id +
+                ", poids=" + poids +
+                ", valeur=" + valeur +
+                ", origine='" + origine + '\'' +
+                ", destination='" + destination + '\'' +
+                ", etatCourant=" + etatCourant +
+                ", date_enregistrement=" + date_enregistrement +
+                ", positions=" + positions +
+                '}';
     }
-    
 }

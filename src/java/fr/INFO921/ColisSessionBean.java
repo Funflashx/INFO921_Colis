@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package fr.INFO921;
 
 import java.math.BigDecimal;
@@ -27,15 +22,6 @@ public class ColisSessionBean implements ColisSessionBeanLocal {
     
     @PersistenceContext
     private EntityManager entityManager;
-
-    @Schedule(dayOfWeek = "Mon-Fri", month = "*", hour = "9-17", dayOfMonth = "*", year = "*", minute = "*", second = "0", persistent = false)
-    @Override
-    public void myTimer() {
-        System.out.println("Timer event: " + new Date());
-    }
-
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
 
     @Override
     public void enregistrementColis(Colis colis) {
