@@ -26,11 +26,9 @@ public class ColisSessionBean implements ColisSessionBeanLocal {
         logger.log(Level.INFO, "Enregitrement du colis : {0}", colis.toString());
         if (colis.getId() == null) {
             logger.info("In save new colis");
-            entityManager.persist(colis);
             Position p = new Position(new BigDecimal(5.55), new BigDecimal(45.989));
-            p.setColis(colis);
-            entityManager.persist(p);
-            entityManager.flush();
+            colis.addPosition(p);
+            entityManager.persist(colis);
         }else {
             logger.info("In update colis");
             entityManager.merge(colis);
