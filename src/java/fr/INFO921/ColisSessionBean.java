@@ -28,6 +28,8 @@ public class ColisSessionBean implements ColisSessionBeanLocal {
             logger.info("In save new colis");
             Position p = new Position(new BigDecimal(5.55), new BigDecimal(45.989));
             colis.addPosition(p);
+            entityManager.persist(p);
+            
             entityManager.persist(colis);
         }else {
             logger.info("In update colis");

@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Iterator;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -69,7 +70,7 @@ public class Colis implements Serializable {
     private Date date_enregistrement;
 
 
-    @OneToMany(mappedBy="colis")
+    @OneToMany(mappedBy="colis", cascade = CascadeType.REMOVE)
     private Collection<Position> positions;
 
     public Colis() {

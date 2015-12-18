@@ -49,14 +49,21 @@ public class TrackingServlet extends HttpServlet {
                 BigDecimal longitude = new BigDecimal(request.getParameter("longitude"));
                 Position position = new Position(latitude, longitude);
                 //position.setColis(colis);
-                if (request.getParameter("etat").equals("en_attente")){
-                    colis.setEtatCourant(Etat.en_attente);
-                }else if (request.getParameter("etat").equals("en_acheminement")){
-                    colis.setEtatCourant(Etat.en_acheminement);
-                }else if (request.getParameter("etat").equals("livre")){
-                    colis.setEtatCourant(Etat.livre);
-                }else if (request.getParameter("etat").equals("bloque")){
-                    colis.setEtatCourant(Etat.bloque);
+                switch (request.getParameter("etat")) {
+                    case "en_attente":
+                        colis.setEtatCourant(Etat.en_attente);
+                        break;
+                    case "en_acheminement":
+                        colis.setEtatCourant(Etat.en_acheminement);
+                        break;
+                    case "livre":
+                        colis.setEtatCourant(Etat.livre);
+                        break;
+                    case "bloque":
+                        colis.setEtatCourant(Etat.bloque);
+                        break;
+                    default:
+                        break;
                 }
                 colis.addPosition(position);
                 colisDao.enregistrementColis(colis);
